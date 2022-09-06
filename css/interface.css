@@ -1,0 +1,39 @@
+input[type=range][orient=vertical]
+{
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* Chromium */
+    width: 9px;
+    height: 200px;
+    padding: 0 5px;
+    background: #aba4b7;
+    
+}
+/* Resize */
+.resizable {
+    resize: horizontal;
+    overflow: scroll;
+    border: 1px solid black;
+    max-width: 150px;
+  }
+
+/* Volume Setting background */
+.bassv {
+    background-color: red;
+}
+.treblelv {
+    background-color: yellow;
+}
+.treblehv {
+    background-color: green;
+}
+.highv {
+    background-color: blue;
+}
+.strong {
+    font-weight: 900;
+}
+
+/*Interface Range*/
+
+  
+/*Gain*/

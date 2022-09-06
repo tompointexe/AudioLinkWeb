@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AudioLink Web || interface</title>
+    <meta name="description" content="">
+    <meta name="author" content="TomPointExe">
+    <link rel="icon" href="/imgs/UdonAudioLinkIcon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Script for Reset Value Slider -->
+    <script>
+    document.getElementById('reset').onclick = function(resetFunc){
+        document.getElementById('range_gain').value = 100;
+        document.getElementById('range_eqtreble').value = 100;
+        document.getElementById('range_eqbass').value = 100;
+        document.getElementById('range_hflength').value = 80;
+        document.getElementById('range_hfexpfalloff').value = 30;
+    };
+    </script>
+
+
+    <!-- Script for Value Slider -->
+    <script>
+      $(function() {
+        $('.slider').on('input change', function() {
+          $(this).next($('.slider_label')).html(this.value);
+        });
+        $('.slider_label').each(function() {
+          var value = $(this).prev().attr('value');
+          $(this).html(value);
+        });
+      })
+    </script>
+
+    <link rel="stylesheet" href="css/interface.css">
+  </head>
+  <body style="background-color: #000; color: #eee">
+
+    <!--  -->
+    <div>
+        MAXOU SECTION
+    </div>
+    <!-- Gain Section -->
+    <br>
+    <div class="m-8">
+      <p class="strong text-lg">Gain: <span> - 
+        <!-- Value output -->
+        <output id="range_gain_disp">100</output>%</span>
+        <!--  -->
+      </p>
+      <div class="ml-4">
+        <input type="range" name="gain" id="range_gain" value="100" min="0" max="200" oninput="range_gain_disp.value = range_gain.value">
+      </div>
+    </div>
+
+    <!-- Basic EQ Section -->
+    
+    <div class="m-8" style="background-color: #555;">
+      <hr>
+      <p class="strong text-lg">Basic EQ:</p>
+      <div class="ml-4">
+        <p class="strong text-lg">Treble <span> - 
+            <!-- Value output -->
+            <output id="range_eqtreble_disp">100</output>%</span>
+            <!--  -->
+        </p>
+        <div class="ml-4">
+          <input type="range" name="eqtreble" id="range_eqtreble" value="100" min="0" max="200" oninput="range_eqtreble_disp.value = range_eqtreble.value">
+        </div>
+      </div>
+
+      <div class="ml-4">
+        <p class="strong text-lg">Bass <span> - 
+            <!-- Value output -->
+            <output id="range_eqbass_disp">100</output>%</span>
+            <!--  -->
+        </p>
+        <div class="ml-4">
+          <input type="range" name="eqbass" id="range_eqbass" value="100" min="0" max="200" oninput="range_eqbass_disp.value = range_eqbass.value">
+        </div>
+       </div>
+      <hr>
+    </div>
+
+
+    <!-- HitFade Section -->
+    <div class="m-8">
+      <p class="strong text-lg">Hit Fade:</p>
+      <div class="ml-4">
+        <p class="strong text-lg">Length 
+            <!-- Value output -->
+            <span style="visibility: hidden;"> - <output id="range_hflength_disp">80</output></span>
+            <!--  -->
+          
+        </p>
+        <div class="ml-4">
+          <input type="range" name="hflength" id="range_hflength" value="80" min="0" max="100" oninput="range_hflength_disp.value = range_hflength.value">
+        </div>
+      </div>
+      <div class="ml-4">
+        <p class="strong text-lg">Exp Falloff 
+            <!-- Value output -->
+            <span style="visibility: hidden;"> - <output id="range_hfexpfalloff_disp" >30</output></span>
+            <!--  -->
+        </p>
+        <div class="ml-4">
+          <input type="range" name="hfexpfalloff" id="range_hfexpfalloff" value="30" min="0" max="100" oninput="range_hfexpfalloff_disp.value = range_hfexpfalloff.value">
+        </div>
+      </div>
+      <hr>
+    </div>
+
+    <div class="p-4 absolute right-0">
+      <button onclick="" id="reset" type="button" value="Reset" class="adlreset rounded-lg p-4 strong text-lg" style="background-color: #eee; color: #333;"> Reset </button>
+    </div>
+  </body>
+</html>
